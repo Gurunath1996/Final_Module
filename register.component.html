@@ -1,0 +1,86 @@
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="https://media-exp1.licdn.com/dms/image/C561BAQGQzmhdVSv9Og/company-background_10000/0/1629724099176?e=2159024400&v=beta&t=JiP074LKFd3QSMLZzdq1I4gUYlT16FWMjWT0r_ZPvVg"
+      width="190" height="50" alt="">
+    </a>
+    <a class="navbar-brand" style="font-weight: bold; font-style: oblique;">Registration form</a>
+  </div>
+</nav>
+<!-- restration -->
+<div style="background-image: url(https://wallpapercave.com/wp/zLI7Hbe.jpg); ">
+<div class="col-md-4 offset-md-4">
+<form #employee="ngForm" (ngSubmit)="addEmployee(employee)">
+  <div class="fname">
+    <label for="fname" style="color: aliceblue;"><b>First Name</b></label>
+    <input required  maxlength="255" ngModel name="fname" #fname="ngModel"  id="fname" type="text" class="form-control">
+   <div class="alert alert-danger" *ngIf="fname.touched && !fname.valid">
+     <div *ngIf="fname.errors.required">First Name is required</div>
+     <div *ngIf="fname.errors.maxlength">First Name should be max of 255 characters</div>
+   </div>
+  </div><br>
+  <div class="form-group">
+    <label for="lname" style="color: aliceblue;"><b>Last Name</b></label>
+    <input required  maxlength="255" ngModel name="lname" #lname ="ngModel"  id="lname" type="text" class="form-control">
+    <div class="alert alert-danger" *ngIf="lname.touched && !lname.valid">
+      <div *ngIf="lname.errors.required">Last Name is required</div>
+     <div *ngIf="lname.errors.maxlength">Last  Name should be max of 25 characters</div>
+  </div><br>
+  <div class="form-group">
+    <label for="email" style="color: aliceblue;"><b>Email</b></label>
+    <input required  placeholder="eg: email@email.com" ngModel name="email" #email ="ngModel" (change)="log(email)" id="email" type="text" class="form-control">
+    <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+      <div *ngIf="email.errors.required">Email is required</div>
+    </div>
+  </div><br>
+  <div class="form-group">
+    <label for="password" style="color: aliceblue;"><b>password</b></label>
+    <input required minlength="3" maxlength="50"  ngModel name="password" #password ="ngModel" (change)="log(password)" id="password" type="text" class="form-control">
+    <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
+      <div *ngIf="password.errors.required">password is required</div>
+     <div *ngIf="password.errors.minlength">password  should have minimum 3 characters</div>
+     <div *ngIf="password.errors.maxlength">password should be max of 50 characters</div>
+    </div>
+  </div><br>
+  <div class="form-group">
+    <label for="dob" style="color: aliceblue;"><b>Date of birth</b></label>
+    <input required  ngModel name="dob" #dob ="ngModel" (change)="log(dob)" id="dob" type="date" class="form-control">
+    <div class="alert alert-danger" *ngIf="dob.touched && !dob.valid">
+      <div *ngIf="dob.errors.required">Date of dob not mentioned or  it is invalid!!! </div>
+    </div>
+  </div><br>
+  <div class="form-group">
+    <label for="jdate" style="color: aliceblue;"><b>Date of joining</b></label>
+    <input required  ngModel name="jdate" #jdate="ngModel" (change)="log(jdate)" id="jdate" type="date" class="form-control">
+    <div class="alert alert-danger" *ngIf="dob.touched && !dob.valid">
+      <div *ngIf="jdate.errors.required">Date of dob not mentioned or  it is invalid!!! </div>
+    </div>
+  </div><br>
+  <div class="form-group">
+    <label for="role" style="color: aliceblue;"><b>Role</b></label>
+    <!-- <select name="role" id="role" class="form-control">
+      <option>---</option>
+      <option value="">Admin</option>
+      <option value="">Employee</option>
+    </select> -->
+    <input required  ngModel name="role" #role="ngModel" placeholder="Admin or Employee" (change)="log(role)" id="role" type="text" class="form-control">
+  </div><br>
+  <div class="form-group">
+    <label for="dept" style="color: aliceblue;">Department</label>
+    <!-- <select name="dept" id="dept" class="form-control">
+      <option>---</option>
+      <option value="">Admistration and HR</option>
+      <option value="">Finance</option>
+      <option value="">Development</option>
+      <option value="">Tech Support</option>
+    </select> -->
+    <input required  ngModel name="dept" #role="ngModel"  id="dept" type="text" class="form-control">
+  </div><br>
+  <button class="btn btn-dark" type="submit" [disabled]="!employee.valid">submit</button>
+</div>
+</form>
+</div>
+</div>
+
+
+
